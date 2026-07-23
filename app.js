@@ -148,8 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Filter Database by Song Release Date (releaseYear & releaseMonth)
     let candidateSongs = SONG_DATABASE.filter(song => {
-      const matchYear = song.releaseYear >= startY && song.releaseYear <= endY;
-      let matchMonth = selectedMonths.length === 0 || selectedMonths.includes(song.releaseMonth);
+      const songYear = song.year || song.releaseYear;
+      const songMonth = song.month || song.releaseMonth;
+      const matchYear = songYear >= startY && songYear <= endY;
+      let matchMonth = selectedMonths.length === 0 || selectedMonths.includes(songMonth);
       let matchGender = selectedGenders.length === 0 || selectedGenders.includes(song.gender);
       let matchGenre = selectedGenres.length === 0 || selectedGenres.includes(song.genre);
       return matchYear && matchMonth && matchGender && matchGenre;
@@ -214,10 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
     resultCard.classList.remove('hidden');
     pickBtn.disabled = false;
 
-    const displayYear = song.releaseYear || song.year || 2024;
-    const displayMonth = song.releaseMonth || song.month || 1;
+    const displayYear = song.year || song.releaseYear || 2024;
+    const displayMonth = song.month || song.releaseMonth || 1;
+    const rankBadge = song.rank ? ` (${song.rank}위)` : '';
 
-    resYear.textContent = `${displayYear}년 ${displayMonth}월`;
+    resYear.textContent = `${displayYear}년 ${displayMonth}월${rankBadge}`;
     resGenre.textContent = song.genre || '가요';
     
     const genderIcon = song.gender === '남성' ? '👨' : (song.gender === '여성' ? '👩' : '👫');
@@ -251,14 +254,15 @@ document.addEventListener('DOMContentLoaded', () => {
       itemEl.className = 'history-item';
 
       const genderIcon = song.gender === '남성' ? '👨' : (song.gender === '여성' ? '👩' : '👫');
-      const displayYear = song.releaseYear || song.year || 2024;
-      const displayMonth = song.releaseMonth || song.month || 1;
+      const displayYear = song.year || song.releaseYear || 2024;
+      const displayMonth = song.month || song.releaseMonth || 1;
+      const rankText = song.rank ? ` • ${song.rank}위` : '';
 
       itemEl.innerHTML = `
         <div class="item-left">
           <span class="item-title">${song.title}</span>
           <span class="item-artist">${song.artist}</span>
-          <span class="item-meta">${genderIcon} ${song.gender || ''} • ${displayYear}년 ${displayMonth}월 • ${song.genre}</span>
+          <span class="item-meta">${genderIcon} ${song.gender || ''} • ${displayYear}년 ${displayMonth}월${rankText} • ${song.genre}</span>
         </div>
         <div class="item-actions">
           <button class="item-del-btn" data-index="${index}" title="삭제">✕</button>

@@ -3,8 +3,8 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 const fs = require('fs');
 
-const START_YEAR = 2010; 
-const END_YEAR = 2023;   
+const START_YEAR = 1980; 
+const END_YEAR = new Date().getFullYear();   
 
 function cleanText(text) {
   if (!text) return '';
@@ -19,7 +19,7 @@ function cleanText(text) {
 async function runScraper() {
   console.log('🚀 (V10 우회 매크로) 지니뮤직 월간 차트 매크로 봇을 시작합니다...');
   console.log('💡 멜론의 406 차단과 과거 데이터 숨김(2025년 이전 차단)을 완벽하게 우회하여,');
-  console.log('💡 동일한 트렌드를 가진 [지니뮤직]에서 2010년~2023년 월간 차트 TOP 100을 안전하게 수집합니다!\n');
+  console.log(`💡 동일한 트렌드를 가진 [지니뮤직]에서 ${START_YEAR}년~${END_YEAR}년 최신 월간 차트 TOP 100을 안전하게 수집합니다!\n`);
   
   const browser = await puppeteer.launch({
     headless: false, 
@@ -34,8 +34,8 @@ async function runScraper() {
   for (let year = END_YEAR; year >= START_YEAR; year--) {
     console.log(`\n================ [ ${year}년 월간 차트 탐색 ] ================`);
     
-    // 12월부터 1월까지 역순 탐색
-    for (let month = 12; month >= 1; month--) {
+    const startMonth = (year === END_YEAR) ? new Date().getMonth() : 12;
+    for (let month = startMonth; month >= 1; month--) {
       const monthStr = month.toString().padStart(2, '0');
       let countForMonth = 0;
       
@@ -44,23 +44,24 @@ async function runScraper() {
         for (let pg = 1; pg <= 2; pg++) {
           const url = `https://www.genie.co.kr/chart/musicHistory?year=${year}&category=0&month=${month}&pg=${pg}`;
           
-          await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+          await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
           
-          const extractedSongs = await page.evaluate(() => {
+          const extractedSongs = await page.evaluate((pgNum) => {
             const rows = document.querySelectorAll('tr.list');
             const data = [];
-            rows.forEach(row => {
+            rows.forEach((row, idx) => {
               const titleEl = row.querySelector('a.title.ellipsis');
               const artistEl = row.querySelector('a.artist.ellipsis');
               if (titleEl && artistEl) {
                 data.push({
+                  rank: (pgNum - 1) * 50 + idx + 1,
                   titleRaw: titleEl.innerText.trim(),
                   artistRaw: artistEl.innerText.trim()
                 });
               }
             });
             return data;
-          });
+          }, pg);
           
           for (const item of extractedSongs) {
             const title = cleanText(item.titleRaw);
@@ -77,20 +78,15 @@ async function runScraper() {
             else if (artist.match(/버즈|DAY6|윤도현|잔나비|자우림|혁오|국카스텐/i)) genre = '록/밴드';
             else if (artist.match(/다이나믹 듀오|에픽하이|지코|비와이/i)) genre = '힙합';
 
-            const key = `${title.toLowerCase().replace(/\s/g, '')}_${artist.toLowerCase().replace(/\s/g, '')}`;
-            
-            if (!uniqueKeys.has(key)) {
-              uniqueKeys.add(key);
-              allSongs.push({ releaseYear: year, releaseMonth: month, title: title, artist: artist, genre: genre, gender: gender });
-              countForMonth++;
-            }
+            allSongs.push({ year: year, month: month, rank: item.rank, title: title, artist: artist, genre: genre, gender: gender });
+            countForMonth++;
           }
           
           // 페이지 이동 간 짧은 대기
-          await new Promise(r => setTimeout(r, Math.floor(Math.random() * 1000) + 500));
+          await new Promise(r => setTimeout(r, Math.floor(Math.random() * 800) + 300));
         }
         
-        console.log(`✅ ${year}년 ${monthStr}월 완료: ${countForMonth}곡 확보 (누적: ${allSongs.length}곡)`);
+        console.log(`✅ ${year}년 ${monthStr}월 완료: ${countForMonth}곡 수집 (누적: ${allSongs.length}개 차트 데이터)`);
         
       } catch (err) {
         console.log(`❌ ${year}년 ${monthStr}월 에러: ${err.message}`);
@@ -108,7 +104,8 @@ async function runScraper() {
 const SONG_DATABASE = ${JSON.stringify(allSongs, null, 2)};
 `;
   
-  fs.writeFileSync('C:/Users/minsu/.gemini/antigravity-ide/scratch/tj-random-song/songData.js', fileContent, 'utf8');
+  const path = require('path');
+  fs.writeFileSync(path.join(__dirname, 'songData.js'), fileContent, 'utf8');
   console.log('💾 Successfully saved to songData.js');
 }
 

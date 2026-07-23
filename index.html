@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TJ 노래방 랜덤 노래 추천기 🎤</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Main Header -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="neon-badge">TJ KARAOKE</span>
+        <h1>🎰 랜덤 노래 뽑기 🎤</h1>
+      </div>
+      <p class="subtitle">노래방에서 무엇을 부를지 고민될 땐? 빠칭코 슬롯으로 신나게 뽑아보세요!</p>
+    </header>
+
+    <!-- Main Content Layout (2 Columns) -->
+    <main class="main-layout">
+      <!-- Left Column: Controls & Slot Engine -->
+      <section class="control-panel">
+        
+        <!-- Year Selection (Preserved UI Range & Quick Presets) -->
+        <div class="panel-card">
+          <h3 class="panel-title">📅 발매 연도 범위 선택</h3>
+          <div class="year-select-group">
+            <div class="select-box">
+              <label for="startYear">시작 연도</label>
+              <select id="startYear"></select>
+            </div>
+            <span class="year-separator">~</span>
+            <div class="select-box">
+              <label for="endYear">종료 연도</label>
+              <select id="endYear"></select>
+            </div>
+          </div>
+          
+          <!-- Decade Quick Presets -->
+          <div class="preset-buttons">
+            <button class="preset-btn" data-start="1980" data-end="1989">80년대</button>
+            <button class="preset-btn" data-start="1990" data-end="1999">90년대</button>
+            <button class="preset-btn" data-start="2000" data-end="2009">00년대</button>
+            <button class="preset-btn" data-start="2010" data-end="2019">10년대</button>
+            <button class="preset-btn" data-start="2020" data-end="2026">20년대~</button>
+            <button class="preset-btn active" data-start="1980" data-end="2026">전체</button>
+          </div>
+        </div>
+
+        <!-- Multi-Select Checkboxes (Month, Gender, Genre) -->
+        <div class="panel-card">
+          
+          <!-- Month Filter (Multi-select Chips) -->
+          <div class="filter-group">
+            <div class="filter-header">
+              <h4 class="filter-title">🗓️ 발매 월 선택 <span class="sub-text">(다중 선택 가능)</span></h4>
+              <button type="button" class="select-all-btn" data-target="month-chip">전체선택</button>
+            </div>
+            <div class="chips-grid month-grid" id="monthChips">
+              <!-- JS Populated 1~12 Months -->
+            </div>
+          </div>
+
+          <!-- Gender Filter (Multi-select Chips) -->
+          <div class="filter-group">
+            <div class="filter-header">
+              <h4 class="filter-title">👤 가수 성별 <span class="sub-text">(다중 선택 가능)</span></h4>
+              <button type="button" class="select-all-btn" data-target="gender-chip">전체선택</button>
+            </div>
+            <div class="chips-grid" id="genderChips">
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="gender-chip" value="남성" checked>
+                <span>👨 남성</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="gender-chip" value="여성" checked>
+                <span>👩 여성</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="gender-chip" value="혼성" checked>
+                <span>👫 혼성/듀엣</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Genre Filter (Multi-select Chips) -->
+          <div class="filter-group">
+            <div class="filter-header">
+              <h4 class="filter-title">🎶 음악 장르 <span class="sub-text">(다중 선택 가능)</span></h4>
+              <button type="button" class="select-all-btn" data-target="genre-chip">전체선택</button>
+            </div>
+            <div class="chips-grid" id="genreChips">
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="genre-chip" value="발라드" checked>
+                <span>💧 발라드</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="genre-chip" value="댄스" checked>
+                <span>🕺 댄스</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="genre-chip" value="록/밴드" checked>
+                <span>🎸 록/밴드</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="genre-chip" value="힙합" checked>
+                <span>🎧 힙합</span>
+              </label>
+              <label class="checkbox-chip checked">
+                <input type="checkbox" class="genre-chip" value="트로트" checked>
+                <span>🎺 트로트</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action Button -->
+        <button id="pickBtn" class="primary-btn pulse-glow">
+          <span class="btn-icon">🎰</span> 조건 맞춤 노래 빠칭코 뽑기
+        </button>
+
+        <!-- Slot Machine Reel Animation View -->
+        <div id="slotSection" class="slot-container hidden">
+          <div class="slot-frame">
+            <div class="pachinko-lights">
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <div class="slot-reel-viewport">
+              <div id="slotDisplay" class="slot-text pachinko-spinning">🎵 빠칭코 릴 돌아가는 중...</div>
+            </div>
+            <div class="pachinko-lights">
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Display Card (TJ Song Number Removed as requested) -->
+        <div id="resultCard" class="result-card hidden">
+          <div class="result-badges">
+            <span id="resYear" class="badge badge-year">1991년 9월</span>
+            <span id="resGenre" class="badge badge-genre">발라드</span>
+            <span id="resGender" class="badge badge-gender">👨 남성</span>
+          </div>
+
+          <div class="song-main-info">
+            <h2 id="resTitle" class="song-title">내 사랑 내 곁에</h2>
+            <p id="resArtist" class="song-artist">김현식</p>
+          </div>
+
+          <div class="result-actions">
+            <a id="ytLink" target="_blank" rel="noopener" class="yt-btn">
+              ▶ YouTube에서 검색
+            </a>
+            <button id="rePickBtn" class="secondary-btn">
+              🔄 다시 뽑기
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Played History Panel -->
+      <aside class="history-panel">
+        <div class="history-card">
+          <div class="history-header">
+            <h3>🎤 불렀던 곡 리스트 <span id="historyCount" class="history-count">0</span></h3>
+            <button id="clearHistoryBtn" class="clear-btn" title="전체 삭제">🗑️ 전체 삭제</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="empty-history">
+              <p>🎤 아직 뽑은 노래가 없습니다.</p>
+              <span>노래를 뽑으면 중복되지 않도록 이곳에 저장됩니다!</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="songData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

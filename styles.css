@@ -455,18 +455,26 @@ body {
 
 .secondary-btn {
   background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 0.95rem;
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 1.05rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 242, 254, 0.15);
 }
 
-.secondary-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.secondary-btn:hover, .secondary-btn:active {
+  background-color: var(--accent-cyan);
+  color: #0f111a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.35);
+}
+
+.re-pick-full {
+  width: 100%;
 }
 
 /* Right History Panel */
@@ -604,4 +612,124 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+/* ==========================================================================
+   Mobile First Responsive UI Optimization
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 14px 10px;
+  }
+
+  .app-header {
+    margin-bottom: 20px;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .panel-card {
+    padding: 16px 14px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+  }
+
+  /* Preset Buttons Touch Target */
+  .preset-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .preset-btn {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Month Chips Grid */
+  .month-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .checkbox-chip {
+    padding: 10px 4px;
+    font-size: 0.85rem;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Main Action Button Mobile Floating Touch Target */
+  .primary-btn {
+    padding: 18px 16px;
+    font-size: 1.1rem;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    min-height: 56px;
+  }
+
+  /* Result Card Mobile Optimization */
+  .result-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .result-badges {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+
+  .song-title {
+    font-size: 1.65rem;
+  }
+
+  .song-artist {
+    font-size: 1.1rem;
+  }
+
+  .history-panel {
+    position: static;
+  }
+
+  .history-card {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .month-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .preset-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .song-title {
+    font-size: 1.45rem;
+  }
 }

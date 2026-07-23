@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resGender = document.getElementById('resGender');
   const resTitle = document.getElementById('resTitle');
   const resArtist = document.getElementById('resArtist');
-  const ytLink = document.getElementById('ytLink');
   const rePickBtn = document.getElementById('rePickBtn');
 
   const historyCount = document.getElementById('historyCount');
@@ -228,10 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resTitle.textContent = song.title;
     resArtist.textContent = song.artist;
-
-    // Youtube Search Link
-    const query = encodeURIComponent(`TJ 노래방 ${song.artist} ${song.title}`);
-    ytLink.href = `https://www.youtube.com/results?search_query=${query}`;
   }
 
   // Render Played Songs List in Right Panel (NO TJ NUMBER)

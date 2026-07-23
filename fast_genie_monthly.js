@@ -8,7 +8,11 @@ const END_YEAR = new Date().getFullYear();
 
 function cleanText(text) {
   if (!text) return '';
-  return text.replace(/\(Live\)/gi, '')
+  return text.replace(/^TITLE\s*/gi, '')
+             .replace(/^19금\s*/gi, '')
+             .replace(/^15금\s*/gi, '')
+             .replace(/^HOT\s*/gi, '')
+             .replace(/\(Live\)/gi, '')
              .replace(/\(Inst\.\)/gi, '')
              .replace(/\(MR\)/gi, '')
              .replace(/\(Special Edition\)/gi, '')

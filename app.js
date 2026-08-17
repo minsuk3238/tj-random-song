@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultCard = document.getElementById('resultCard');
   const resYear = document.getElementById('resYear');
   const resGenre = document.getElementById('resGenre');
-  const resGender = document.getElementById('resGender');
   const resTitle = document.getElementById('resTitle');
   const resArtist = document.getElementById('resArtist');
   const rePickBtn = document.getElementById('rePickBtn');
@@ -142,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const selectedMonths = getCheckedValues('month-chip').map(Number);
-    const selectedGenders = getCheckedValues('gender-chip');
     const selectedGenres = getCheckedValues('genre-chip');
 
     // 1. Filter Database by Song Release Date (releaseYear & releaseMonth)
@@ -151,9 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const songMonth = song.month || song.releaseMonth;
       const matchYear = songYear >= startY && songYear <= endY;
       let matchMonth = selectedMonths.length === 0 || selectedMonths.includes(songMonth);
-      let matchGender = selectedGenders.length === 0 || selectedGenders.includes(song.gender);
       let matchGenre = selectedGenres.length === 0 || selectedGenres.includes(song.genre);
-      return matchYear && matchMonth && matchGender && matchGenre;
+      return matchYear && matchMonth && matchGenre;
     });
 
     // 2. Strictly Exclude Songs Present in History (100% Guarantee 0% Duplication)
@@ -221,9 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resYear.textContent = `${displayYear}년 ${displayMonth}월${rankBadge}`;
     resGenre.textContent = song.genre || '가요';
-    
-    const genderIcon = song.gender === '남성' ? '👨' : (song.gender === '여성' ? '👩' : '👫');
-    resGender.textContent = `${genderIcon} ${song.gender || '가수'}`;
 
     resTitle.textContent = song.title;
     resArtist.textContent = song.artist;
@@ -248,7 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const itemEl = document.createElement('div');
       itemEl.className = 'history-item';
 
-      const genderIcon = song.gender === '남성' ? '👨' : (song.gender === '여성' ? '👩' : '👫');
       const displayYear = song.year || song.releaseYear || 2024;
       const displayMonth = song.month || song.releaseMonth || 1;
       const rankText = song.rank ? ` • ${song.rank}위` : '';
@@ -257,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="item-left">
           <span class="item-title">${song.title}</span>
           <span class="item-artist">${song.artist}</span>
-          <span class="item-meta">${genderIcon} ${song.gender || ''} • ${displayYear}년 ${displayMonth}월${rankText} • ${song.genre}</span>
+          <span class="item-meta">📅 ${displayYear}년 ${displayMonth}월${rankText} • 🎶 ${song.genre}</span>
         </div>
         <div class="item-actions">
           <button class="item-del-btn" data-index="${index}" title="삭제">✕</button>

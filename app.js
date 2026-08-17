@@ -32,10 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initSelectAllButtons();
   renderHistoryList();
 
-  // Populate Year Select Options (1980 ~ 2026)
+  // Populate Year Select Options (1980 ~ Current Max Year)
   function initYearSelects() {
-    const currentYear = 2026;
-    for (let y = 1980; y <= currentYear; y++) {
+    let maxYear = 2026;
+    if (typeof SONG_DATABASE !== 'undefined' && SONG_DATABASE.length > 0) {
+      SONG_DATABASE.forEach(s => {
+        if (s.year > maxYear) maxYear = s.year;
+      });
+    }
+    const currentSystemYear = new Date().getFullYear();
+    if (currentSystemYear > maxYear) maxYear = currentSystemYear;
+
+    for (let y = 1980; y <= maxYear; y++) {
       const opt1 = document.createElement('option');
       opt1.value = y;
       opt1.textContent = `${y}년`;
@@ -47,7 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
       endYearSelect.appendChild(opt2);
     }
     startYearSelect.value = 1980;
-    endYearSelect.value = 2026;
+    endYearSelect.value = maxYear;
+
+    // Dynamically update preset button ranges if maxYear exceeds 2026
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      if (btn.dataset.start === '2020') {
+        btn.dataset.end = maxYear;
+      }
+      if (btn.dataset.start === '1980' && btn.textContent.includes('전체')) {
+        btn.dataset.end = maxYear;
+      }
+    });
   }
 
   // Populate Month Checkbox Chips (1 ~ 12)

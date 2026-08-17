@@ -1,0 +1,44 @@
+name: Auto Update Song Chart Data
+
+on:
+  schedule:
+    # 매월 1일과 15일 09:00 KST (00:00 UTC)에 주기적으로 실행
+    - cron: '0 0 1,15 * *'
+  workflow_dispatch: # GitHub Actions 탭에서 수동으로 'Run workflow' 버튼 클릭 가능
+
+permissions:
+  contents: write
+
+jobs:
+  update-chart:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Node.js 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 의존성 패키지 설치
+        run: npm install
+
+      - name: 🎵 최신 차트 데이터 자동 수집 및 업데이트
+        run: node auto_update_chart.js
+
+      - name: 🚀 변경사항 자동 커밋 및 깃허브 푸시
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet songData.js; then
+            echo "✨ 업데이트할 새로운 차트 데이터가 없습니다. (최신 상태)"
+          else
+            echo "🔥 새로운 차트 데이터 감지! 깃허브 저장소에 커밋 및 푸시합니다."
+            git add songData.js
+            git commit -m "🤖 [자동 업데이트] 최신 월간 차트 데이터 반영 ($(date +'%Y-%m-%d'))"
+            git push
+          fi

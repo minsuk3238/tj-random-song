@@ -1,8 +1,808 @@
 // TJ Karaoke Monthly TOP 100 Database (1980-2026)
-// Total Entries: 48650
-// Auto-updated on 2026-08-17
+// Total Entries: 48750
+// Auto-updated on 2026-09-01
 
 const SONG_DATABASE = [
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 1,
+    "title": "갑자기",
+    "artist": "아이오아이 (I.O.I)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 2,
+    "title": "REDRED",
+    "artist": "CORTIS (코르티스)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 3,
+    "title": "LOVE ATTACK",
+    "artist": "RESCENE (리센느)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 4,
+    "title": "It's Me",
+    "artist": "아일릿(ILLIT)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 5,
+    "title": "LEMONADE",
+    "artist": "aespa",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 6,
+    "title": "Drowning",
+    "artist": "WOODZ",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 7,
+    "title": "소문의 낙원",
+    "artist": "AKMU (악뮤)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 8,
+    "title": "캐치 캐치",
+    "artist": "YENA (최예나)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 9,
+    "title": "사랑하게 될 거야",
+    "artist": "한로로",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 10,
+    "title": "0＋0",
+    "artist": "한로로",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 11,
+    "title": "Good Goodbye",
+    "artist": "화사 (HWASA)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 12,
+    "title": "기쁨, 슬픔, 아름다운 마음",
+    "artist": "AKMU (악뮤)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 13,
+    "title": "타임캡슐",
+    "artist": "다비치",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 14,
+    "title": "BANG BANG",
+    "artist": "IVE (아이브)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 15,
+    "title": "Popcorn",
+    "artist": "도경수 (D.O.)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 16,
+    "title": "RUDE!",
+    "artist": "Hearts2Hearts (하츠투하츠)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 17,
+    "title": "404 (New Era)",
+    "artist": "KiiiKiii (키키)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 18,
+    "title": "뛰어(JUMP)",
+    "artist": "BLACKPINK",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 19,
+    "title": "너에게 닿기를",
+    "artist": "10CM",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 20,
+    "title": "Golden",
+    "artist": "HUNTR/X & EJAE & Audrey Nuna & REI AMI & KPop Demon Hunters Cast",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 21,
+    "title": "모르시나요 (Prod. by 로코베리)",
+    "artist": "조째즈",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 22,
+    "title": "내게 사랑이 뭐냐고 물어본다면",
+    "artist": "로이킴",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 23,
+    "title": "어제보다 슬픈 오늘",
+    "artist": "우디 (Woody)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 24,
+    "title": "멸종위기사랑",
+    "artist": "이찬혁",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 25,
+    "title": "Blue Valentine",
+    "artist": "NMIXX",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 26,
+    "title": "청춘만화",
+    "artist": "이무진",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 27,
+    "title": "HAPPY",
+    "artist": "DAY6 (데이식스)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 28,
+    "title": "봄 내음보다 너를",
+    "artist": "김나영",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 29,
+    "title": "Pretty Girl",
+    "artist": "RESCENE (리센느)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 30,
+    "title": "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
+    "artist": "AKMU (악뮤)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 31,
+    "title": "입춘",
+    "artist": "한로로",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 32,
+    "title": "Whiplash",
+    "artist": "aespa",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 33,
+    "title": "생각을 멈추다 보면",
+    "artist": "최유리",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 34,
+    "title": "한 페이지가 될 수 있게",
+    "artist": "DAY6 (데이식스)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 35,
+    "title": "Pretender",
+    "artist": "OFFICIAL HIGE DANDISM",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 36,
+    "title": "너의 모든 순간",
+    "artist": "성시경",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 37,
+    "title": "소나기",
+    "artist": "이클립스 (ECLIPSE)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 38,
+    "title": "시작의 아이",
+    "artist": "마크툽 (Maktub)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 39,
+    "title": "toxic till the end",
+    "artist": "로제 (ROSÉ)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 40,
+    "title": "그대 작은 나의 세상이 되어",
+    "artist": "카더가든",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 41,
+    "title": "벌써 일년",
+    "artist": "브라운 아이즈",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 42,
+    "title": "나는 반딧불",
+    "artist": "황가람",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 43,
+    "title": "HOME SWEET HOME (Feat. 태양 & 대성)",
+    "artist": "G-DRAGON",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 44,
+    "title": "만찬가",
+    "artist": "태연 (TAEYEON)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 45,
+    "title": "천상연",
+    "artist": "이창섭",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 46,
+    "title": "like JENNIE",
+    "artist": "제니 (JENNIE)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 47,
+    "title": "예뻤어",
+    "artist": "DAY6 (데이식스)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 48,
+    "title": "Welcome to the Show",
+    "artist": "DAY6 (데이식스)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 49,
+    "title": "BAD",
+    "artist": "ATEEZ (에이티즈)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 50,
+    "title": "APT.",
+    "artist": "로제 (ROSÉ) & Bruno Mars",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 51,
+    "title": "REBEL HEART",
+    "artist": "IVE (아이브)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 52,
+    "title": "주저하는 연인들을 위해",
+    "artist": "잔나비",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 53,
+    "title": "사건의 지평선",
+    "artist": "윤하 (YOUNHA)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 54,
+    "title": "Heavy Serenade",
+    "artist": "NMIXX",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 55,
+    "title": "에피소드",
+    "artist": "이무진",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 56,
+    "title": "어땠을까 (Feat. 박정현)",
+    "artist": "싸이 (Psy)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 57,
+    "title": "WDA (Whole Different Animal) (Feat. G-DRAGON)",
+    "artist": "aespa",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 58,
+    "title": "사랑인가 봐",
+    "artist": "멜로망스 (MeloMance)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 59,
+    "title": "달리 표현할 수 없어요",
+    "artist": "로이킴",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 60,
+    "title": "Soda Pop",
+    "artist": "Saja Boys & Andrew Choi & Neckwav & Danny Chung & Kevin Woo & samUIL Lee & KPop Demon Hunters Cast",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 61,
+    "title": "고민중독",
+    "artist": "QWER",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 62,
+    "title": "Die With A Smile",
+    "artist": "Lady Gaga & Bruno Mars",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 63,
+    "title": "MY LOVE (2025)",
+    "artist": "이예은 & 아샤트리 & 전건호",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 64,
+    "title": "Love Love Love (Feat. Yoong Jin of Casker))",
+    "artist": "에픽하이 (EPIK HIGH)",
+    "genre": "힙합"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 65,
+    "title": "모든 날, 모든 순간 (Every day, Every Moment)",
+    "artist": "폴킴",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 66,
+    "title": "Cruel Summer",
+    "artist": "Taylor Swift",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 67,
+    "title": "눈을 감아도(2026)",
+    "artist": "순순희 (지환)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 68,
+    "title": "슬픈 초대장",
+    "artist": "순순희 (지환)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 69,
+    "title": "다정히 내 이름을 부르면",
+    "artist": "경서예지 & 전건호",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 70,
+    "title": "Stay",
+    "artist": "The Kid LAROI & Justin Bieber",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 71,
+    "title": "Flashback",
+    "artist": "엔플라잉 (N.Flying)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 72,
+    "title": "FAMOUS",
+    "artist": "ALLDAY PROJECT",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 73,
+    "title": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
+    "artist": "너드커넥션 (Nerd Connection)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 74,
+    "title": "시작의 아이 ❍",
+    "artist": "박다혜 & 마크툽 (Maktub)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 75,
+    "title": "첫 만남은 계획대로 되지 않아",
+    "artist": "TWS (투어스)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 76,
+    "title": "희재",
+    "artist": "성시경",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 77,
+    "title": "숲",
+    "artist": "최유리",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 78,
+    "title": "비의 랩소디",
+    "artist": "임재현",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 79,
+    "title": "떠나가요, 떠나지마요 : 시대를 초월한 마음",
+    "artist": "순순희 (기태) & 백예슬",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 80,
+    "title": "그래 늦지 않았어 (2025)",
+    "artist": "아샤트리 & 이예은 & 전건호",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 81,
+    "title": "참 다행이야",
+    "artist": "Spapa",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 82,
+    "title": "어른",
+    "artist": "Sondia",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 83,
+    "title": "Lemon Tang",
+    "artist": "Hearts2Hearts (하츠투하츠)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 84,
+    "title": "심 (心)",
+    "artist": "DK (디셈버)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 85,
+    "title": "청혼하지 않을 이유를 못 찾았어",
+    "artist": "이무진",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 86,
+    "title": "가까운 듯 먼 그대여",
+    "artist": "카더가든",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 87,
+    "title": "나는 아픈 건 딱 질색이니까",
+    "artist": "i-dle (아이들)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 88,
+    "title": "내 이름 맑음",
+    "artist": "QWER",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 89,
+    "title": "Supernova",
+    "artist": "aespa",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 90,
+    "title": "Deja Vu",
+    "artist": "RESCENE (리센느)",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 91,
+    "title": "TICK TOCK (Feat. ZICO) (Prod. by ZICO, Crush)",
+    "artist": "김하온 (HAON) & Nosun & Raf Sandou & Marv & 정준혁",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 92,
+    "title": "TOO BAD (Feat. Anderson .Paak)",
+    "artist": "G-DRAGON",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 93,
+    "title": "I AM",
+    "artist": "IVE (아이브)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 94,
+    "title": "SWIM",
+    "artist": "방탄소년단",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 95,
+    "title": "BLACKHOLE",
+    "artist": "IVE (아이브)",
+    "genre": "록/밴드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 96,
+    "title": "사랑은 늘 도망가",
+    "artist": "임영웅",
+    "genre": "트로트"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 97,
+    "title": "헤어지자 말해요",
+    "artist": "박재정",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 98,
+    "title": "잘 지내자, 우리 (여름날 우리 X 로이킴)",
+    "artist": "로이킴",
+    "genre": "발라드"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 99,
+    "title": "붉은 노을",
+    "artist": "BIGBANG (빅뱅)",
+    "genre": "댄스"
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "rank": 100,
+    "title": "Love wins all",
+    "artist": "아이유 (IU)",
+    "genre": "발라드"
+  },
   {
     "year": 2026,
     "month": 8,
